@@ -1,4 +1,4 @@
-
+import { useEffect, useState } from "react";
 import SearchCoin from '../pages/SearchCoin'
 import Home from '../pages/Home'
 import MarketTrends from '../pages/MarketTrends'

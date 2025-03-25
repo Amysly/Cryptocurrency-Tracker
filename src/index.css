@@ -2,3 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+
+html,body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+
+.bg-center{
+    background-image: url(images/cryptoDark.jpg);
+    min-height:70vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.scroll-up-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .scroll-up-button.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  
+  

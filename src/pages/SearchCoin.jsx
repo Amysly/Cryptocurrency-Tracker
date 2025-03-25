@@ -9,7 +9,7 @@ function SearchCoin() {
     const fetchCoins = async () => {
       try {
         const response = await fetch(
-            "http://localhost:5000/api/cryptocurrency",
+          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd",
         );
         const data = await response.json();
         console.log(data)
@@ -35,11 +35,14 @@ function SearchCoin() {
   }, [search, coins]);
 
   return (
-    <div className="p-4">
+    <div className="flex flex-col items-center mt-10 mb-5">
       <input
         type="text"
         placeholder="Search for a coin..."
-        className="border p-2 w-full"
+        className="border-2 border-gray-700 lg:w-full max-w-md p-2 
+      bg-white  text-black font-serif
+      placeholder-gray-500 dark:placeholder-gray-400 
+      rounded-md placeholder:text-lg placeholder:font-serif"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -48,9 +51,11 @@ function SearchCoin() {
         <ul className="mt-4">
           {filteredCoins.map((coin) => (
             <li key={coin.id} className="p-2 border-b">
-              <div>
-              <img src={coin.image} alt="" className="w-10 h-10 object-contain" /> 
-              {coin.name} ({coin.symbol})
+              <div className="flex space-x-2">
+                <div>
+                <img src={coin.image} alt="" className="w-10 h-10 object-contain" /> 
+                </div>
+                <div><p className="font-serif mt-2">{coin.name} ({coin.symbol.toUpperCase()})</p></div>
               </div>
             </li>
           ))}

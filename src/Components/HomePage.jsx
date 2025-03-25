@@ -1,21 +1,46 @@
+import React from "react";
+import Home from "../pages/Home";
+import Pagination from "./Pagination";
+import HeroSection from "./HeroSection";
+import SearchCoin from "../pages/SearchCoin";
 
-import SearchCoin from '../pages/SearchCoin'
-import Home from '../pages/Home'
-import MarketTrends from '../pages/MarketTrends'
-import Losers from '../pages/Losers'
 
-const HomePage = ({cryptoData, gainers,losers, isLoading}) => {
-    console.log("🔥 HomePage Updated:", { cryptoData, gainers, losers, isLoading });
 
+const HomePage = ({ 
+  currentCryptoPage,
+  trendingCoins, 
+  isLoadingData, 
+  isLoadingTrending, 
+  coinPerPage, 
+  totalCoins,
+  paginate,
+  currentPage,
+  losers,
+  gainers,
+  news,
+  isLoadingNews
+}) => {
+  
 
   return (
     <div>
-      <div>
-        <SearchCoin />
-        <Home cryptoData={cryptoData} gainers={gainers} losers={losers} />
-        <MarketTrends />
-        <Losers />
-      </div>
+      <HeroSection 
+        trendingCoins={trendingCoins} 
+        isLoadingTrending={isLoadingTrending} 
+        losers={losers} 
+        isLoadingData={isLoadingData} 
+        gainers={gainers} 
+        news={news} isLoadingNews={isLoadingNews}
+      />
+      <SearchCoin />
+      <Home cryptoData={currentCryptoPage} isLoadingData={isLoadingData} />
+      <Pagination
+      coinPerPage={coinPerPage}
+      totalCoins={totalCoins}
+      paginate={paginate}
+      currentPage={currentPage}
+/>
+
     </div>
   );
 };

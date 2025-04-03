@@ -1,6 +1,8 @@
-import React from "react";
+import React,{useContext} from "react";
+import { CryptoContext } from "../Components/CryptoContext";
 
-const TrendingCoin = ({ trendingCoins, isLoadingTrending }) => {
+const TrendingCoin = () => {
+const {trendingCoins, isLoadingTrending}= useContext(CryptoContext)
   if (isLoadingTrending) 
     return (
       <div className="flex justify-center items-center h-64">
@@ -13,10 +15,10 @@ const TrendingCoin = ({ trendingCoins, isLoadingTrending }) => {
   }
 
   return (
-    <div className="overflow-x-auto mt-12">
-      <h2 className="text-center mb-4 mt-5 text-lg font-bold">Trending Coins</h2>
-      <table className="min-w-full bg-white border border-gray-300">
-        <thead>
+    <div className="overflow-x-auto mt-10 sm:mt-3 lg:mt-11">
+      <h2 className="text-center mb-4 mt-10 text-sm sm:text-base lg:text-2xl font-bold">Trending Coins</h2>
+      <table className="min-w-full border-gray-300">
+        <thead className="text-sm sm:text-base lg:text-lg">
           <tr className="bg-gray-200 text-gray-700">
             <th className="py-2 px-4 border">image</th>
             <th className="py-2 px-4 border">Name</th>
@@ -28,7 +30,7 @@ const TrendingCoin = ({ trendingCoins, isLoadingTrending }) => {
               <td className="py-2 px-4 border">
                 <img src={coin.item.small} alt={coin.item.name} className="w-6 h-6 mx-auto" />
               </td>
-              <td className="py-2 px-4 border font-bold text-black text-xl sm:text-xs">{coin.item.name} {coin.item.symbol}</td>
+              <td className="py-2 px-4 border font-bold text-black text-sm sm:text-base lg:text-lg">{coin.item.name} {coin.item.symbol}</td>
             </tr>
           ))}
         </tbody>

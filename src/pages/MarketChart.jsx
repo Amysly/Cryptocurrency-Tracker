@@ -15,10 +15,11 @@ import {
 ChartJS.register(
   LineElement, CategoryScale, 
   LinearScale, PointElement, 
-  Title, Tooltip, Legend);
+  Title, Tooltip, Legend
+);
 
 const MarketChart = () => {
-  const { coinId } = useParams(); // Get coinId from URL params
+  const { coinId } = useParams();
   const [chartData, setChartData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -26,8 +27,7 @@ const MarketChart = () => {
     const fetchMarketChart = async () => {
       try {
         const res = await fetch(
-           `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=7`
-
+          `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=7`
         );
 
         if (!res.ok) throw new Error("Failed to fetch market chart data");
@@ -61,14 +61,24 @@ const MarketChart = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-xl text-black font-bold text-center mb-2">{coinId} Price Chart (Last 7 Days)</h2>
+      <h2 className="text-sm sm:text-base lg:text-xl text-black font-bold text-center mb-2">
+        {coinId} Price Chart (Last 7 Days)
+      </h2>
 
       {isLoading ? (
-       <div className="flex justify-center items-center h-64">
-       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-     </div>
+        <div className="flex justify-center items-center h-64">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        </div>
       ) : chartData ? (
-        <Line data={chartData}/>
+        <div className="w-full max-w-[100%] h-[300px] sm:h-[400px] lg:h-[500px] mx-auto">
+          <Line 
+            data={chartData} 
+            options={{ 
+              responsive: true, 
+              maintainAspectRatio: false 
+            }} 
+          />
+        </div>
       ) : (
         <p className="text-red-500">Failed to load chart data.</p>
       )}

@@ -36,7 +36,7 @@ const Header = () => {
     >
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-green-400 font-serif sm:text-2xl lg:text-3xl">
-          Cryptotracker
+        <NavLink to ="/">Cryptotracker</NavLink>
         </div>
 
         <button
@@ -48,7 +48,7 @@ const Header = () => {
 
         <div
           className={`space-x-4 ${isOpen ? "flex" : "hidden"} 
-          absolute top-full right-5 w-[300px] bg-gray-900 flex-col items-center 
+          absolute top-full right-0 w-[180px] bg-gray-900 flex-col items-center 
           p-[10px] transition-all ease-out duration-[550ms] lg:flex lg:static lg:w-auto 
           lg:bg-transparent lg:flex-row lg:p-0`}
         >

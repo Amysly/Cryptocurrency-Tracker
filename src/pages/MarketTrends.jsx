@@ -1,7 +1,9 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Link } from "react-router-dom";
+import { CryptoContext } from "../Components/CryptoContext";
 
-const MarketTrends = ({ gainers, isLoadingData }) => {
+const MarketTrends = () => {
+  const {gainers, isLoadingData} = useContext(CryptoContext)
   if (isLoadingData) 
     return (
       <div className="flex justify-center items-center h-64">
@@ -17,7 +19,7 @@ const MarketTrends = ({ gainers, isLoadingData }) => {
   return (
 
      <div className="w-full mt-14">
-       <h1 className="text-2xl font-bold mb-4 text-center mt-5"> Top Gainers</h1>
+       <h1 className="lg:text-2xl font-bold mb-4 text-center mt-5 md:hidden"> Top Gainers</h1>
           {/* Card Layout for Small Screens */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
             {gainers.map((crypto) => (
@@ -25,7 +27,7 @@ const MarketTrends = ({ gainers, isLoadingData }) => {
                 <div className="flex items-center space-x-4">
                   <img src={crypto.image} alt={crypto.name} className="w-10 h-10 object-contain" />
                   <div>
-                    <h2 className="font-bold text-lg">{crypto.name} ({crypto.symbol.toUpperCase()})</h2>
+                    <h2 className="font-bold text-base">{crypto.name} ({crypto.symbol.toUpperCase()})</h2>
                     <p className="text-black font-bold">${crypto.current_price.toFixed(2)}</p>
                   </div>
                 </div>
@@ -48,8 +50,8 @@ const MarketTrends = ({ gainers, isLoadingData }) => {
           </div>
     
 
-    <div>
-      <h1 className="text-2xl font-bold mb-4 hidden md:block">Top Gainers</h1>
+    <div className="mt-20 mb-10">
+      <h1 className="text-2xl font-bold mb-4 hidden md:block text-center">Top Gainers</h1>
       <div className="hidden md:block overflow-x-auto">
         <table className="min-w-max w-full border-collapse border border-gray-200 text-xs sm:text-sm md:text-base">
           <thead className="font-serif text-black">

@@ -16,7 +16,7 @@ const Losers = ({ losers, isLoadingData }) => {
 
   return (
  <div className="w-full mt-14">
-   <h1 className="text-2xl font-bold mb-4 text-center mt-5">Top Losers</h1>
+   <h1 className=" lg:text-2xl font-bold mb-4 text-center mt-5 md:hidden">Top Losers</h1>
       {/* Card Layout for Small Screens */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
         {losers.map((crypto) => (
@@ -24,7 +24,7 @@ const Losers = ({ losers, isLoadingData }) => {
             <div className="flex items-center space-x-4">
               <img src={crypto.image} alt={crypto.name} className="w-10 h-10 object-contain" />
               <div>
-                <h2 className="font-bold text-lg">{crypto.name} ({crypto.symbol.toUpperCase()})</h2>
+                <h2 className="font-bold lg:text-lg">{crypto.name} ({crypto.symbol.toUpperCase()})</h2>
                 <p className="text-black font-bold">${crypto.current_price.toFixed(2)}</p>
               </div>
             </div>
@@ -47,7 +47,7 @@ const Losers = ({ losers, isLoadingData }) => {
       </div>
 
   {/* Table Layout for Medium Screens and Larger */}
-    <div className='mt-20'>
+    <div className='mt-20 mb-10'>
       <h1 className="text-2xl font-bold mb-4 text-center mt-5 hidden md:block">Top Losers</h1>
       <div className=" hidden md:block overflow-x-auto">
         <table className="min-w-max w-full border-collapse border border-gray-200 text-xs sm:text-sm md:text-base">

@@ -1,22 +1,25 @@
-import React from "react";
+import React,{useContext} from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { CryptoContext } from "../Components/CryptoContext";
 
-const Home = ({ cryptoData }) => {
-  if (!cryptoData || cryptoData.length === 0) {
+const Home = () => {
+  const { currentCryptoPage } = useContext(CryptoContext);
+  if (!currentCryptoPage || currentCryptoPage === 0) {
     return <div className="text-center mt-8">No cryptocurrency data available.</div>;
   }
 
   return (
+    <>
     <div className="w-full">
       {/* Card Layout for Small Screens */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
-        {cryptoData.map((crypto) => (
+        {currentCryptoPage.map((crypto) => (
           <div key={crypto.id} className="border p-4 rounded-lg shadow-md bg-white">
             <div className="flex items-center space-x-4">
               <img src={crypto.image} alt={crypto.name} className="w-10 h-10 object-contain" />
               <div>
-                <h2 className="font-bold text-lg">{crypto.name} ({crypto.symbol.toUpperCase()})</h2>
+                <h2 className="font-bold lg:text-lg">{crypto.name} ({crypto.symbol.toUpperCase()})</h2>
                 <p className="text-black font-bold">${crypto.current_price.toFixed(2)}</p>
               </div>
             </div>
@@ -54,7 +57,7 @@ const Home = ({ cryptoData }) => {
             </tr>
           </thead>
           <tbody>
-            {cryptoData.map((crypto) => (
+            {currentCryptoPage.map((crypto) => (
               <tr key={crypto.id} className="hover:bg-gray-200">
                 <td className="border border-gray-200 px-3 sm:px-4 py-2">
                   <img src={crypto.image} alt={crypto.name} className="w-8 sm:w-10 h-8 sm:h-10 object-contain" />
@@ -90,6 +93,7 @@ const Home = ({ cryptoData }) => {
         </table>
       </div>
     </div>
+    </>
   );
 };
 

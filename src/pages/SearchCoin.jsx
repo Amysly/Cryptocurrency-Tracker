@@ -55,7 +55,7 @@ function SearchCoin() {
                 <div>
                 <img src={coin.image} alt="" className="w-10 h-10 object-contain" /> 
                 </div>
-                <div><p className="font-serif mt-2">{coin.name} ({coin.symbol.toUpperCase()})</p></div>
+                <div><p className="font-serif mt-2 lg:text-lg">{coin.name} ({coin.symbol.toUpperCase()})</p></div>
               </div>
             </li>
           ))}

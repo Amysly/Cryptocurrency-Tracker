@@ -1,7 +1,6 @@
 import React from 'react';
 
 const CryptoNews = ({ news, isLoadingNews }) => {
-
   if (isLoadingNews) 
     return (
       <div className="flex justify-center items-center h-64">
@@ -15,7 +14,9 @@ const CryptoNews = ({ news, isLoadingNews }) => {
 
   return (
     <div className="p-4">
-      <h2 className="text-xl text-black font-bold text-nowrap mb-3">Cryptocurrency News</h2>
+      <h2 className="text-sm sm:text-base lg:text-lg text-black font-bold text-nowrap mb-3">
+        Cryptocurrency News
+      </h2>
       <ul className="space-y-4">
         {news.map((article, index) => (
           <li key={index} className="border p-4 rounded-md shadow-sm">
@@ -23,19 +24,19 @@ const CryptoNews = ({ news, isLoadingNews }) => {
               <img
                 src={article.image_url}
                 alt={article.title}
-               className="w-36 h-36 object-contain rounded-sm"
+                className="w-40 object-contain rounded-lg m-auto mb-3"
               />
             )}
             <a
               href={article.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black font-serif"
+              className="text-black font-serif text-sm sm:text-base lg:text-lg text-center"
             >
               {article.title}
             </a>
-            <p className="text-black text-sm">
-             {new Date(article.pubDate).toLocaleDateString()}
+            <p className="text-black text-sm sm:text-base lg:text-base">
+              {new Date(article.pubDate).toLocaleDateString()}
             </p>
           </li>
         ))}

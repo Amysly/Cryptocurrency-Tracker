@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 
+
 html,body {
   overflow-x: hidden;
   margin: 0;
@@ -11,11 +12,16 @@ html,body {
 }
 
 
+
 .bg-center{
     background-image: url(images/cryptoDark.jpg);
     min-height:70vh;
     background-position: center;
     background-size: cover;
+}
+
+footer{
+margin-bottom: -24px;
 }
 
 .scroll-up-button {

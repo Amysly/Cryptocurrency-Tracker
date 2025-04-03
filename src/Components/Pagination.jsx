@@ -1,7 +1,9 @@
-import React from "react";
+import React,{useContext} from "react";
 import ReactPaginate from "react-paginate";
+import { CryptoContext } from "./CryptoContext";
 
-const Pagination = ({ coinPerPage, totalCoins, paginate, currentPage }) => {
+const Pagination = () => {
+  const { coinPerPage, totalCoins, paginate, currentPage} = useContext(CryptoContext)
   const pageCount = Math.ceil(totalCoins / coinPerPage);
 
   const handlePageClick = ({ selected }) => {
@@ -10,7 +12,8 @@ const Pagination = ({ coinPerPage, totalCoins, paginate, currentPage }) => {
   };
 
   return (
-    <div className="flex justify-center mt-6">
+    <>
+    <div className="flex justify-center mt-6 lg:mb-6">
       <ReactPaginate
         previousLabel={"← Prev"}
         nextLabel={"Next →"}
@@ -28,6 +31,20 @@ const Pagination = ({ coinPerPage, totalCoins, paginate, currentPage }) => {
         forcePage={currentPage - 1} // Sync with state
       />
     </div>
+
+    <div className="grid lg:grid-cols-2 lg:mt-5 gap-6 p-9">
+      <div className="p-5">
+        <h1 className="font-bold text-center lg:text-3xl sm:text-2xl mb-3 whitespace-nowrap">What We Offer</h1>
+        <p className="mt-3 mb-3 lg:text-xl"><span className="font-bold">Real-Time Market Data</span> : Stay updated with live prices, trends, and market insights.</p>
+        <p className="mt-3 mb-3 lg:text-xl"><span className="font-bold">Comprehensive Coin Analysis</span>: Get in-depth details on Bitcoin, Ethereum, and other altcoins.</p>
+        <p className="mt-3 mb-3 lg:text-xl"><span className="font-bold">Secure & Reliable Information</span>: Trustworthy guides and insights for both beginners and experienced traders.</p>
+        <p className="mt-3 mb-3 lg:text-xl"><span className="font-bold">Latest Crypto News</span>: Stay ahead with the most recent developments in the blockchain and cryptocurrency world.</p>
+      </div>
+      <div>
+        <img src='/images/btc.jpg' alt='btcimage' className="lg:w-9/12"></img>
+      </div>
+      </div>
+    </>
   );
 };
 

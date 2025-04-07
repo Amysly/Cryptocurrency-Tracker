@@ -17,12 +17,15 @@ const HeroSection = () => {
     );
   return (
     <>
-    <div className="bg-center bg-no-repeat px-4 md:px-8 pt-8">
-        <div className="mt-10 sm:mt-20 lg:mt-40 px-4">
-          <h1 className="font-bold text-white text-center lg:text-4xl">Welcome to the Future of Finance - Your Ultimate Cryptocurrency Hub!</h1>
-          <p className="text-white text-center lg:text-2xl">The future of finance is here, and it's decentralized. Don't get left behind — empower yourself with knowledge and make the most of this transformative era</p>
-        </div>
-    </div>
+<div className="relative">
+  <video autoPlay muted loop className="w-full h-[500px] object-cover">
+  <source src="/video/coins.mp4" type="video/mp4" />
+    </video>
+  <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white text-center px-4">
+    <h1 className="lg:text-4xl font-bold">Welcome to the Future of Finance </h1>
+    <p className="lg:text-xl mt-4">Empower yourself with knowledge...</p>
+  </div>
+</div>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-5 p-9 bg-gray-900">
     {/* Trending Coins */}
     <div className="bg-gray-200 w-full max-w-[18rem] h-auto p-4 rounded-lg cursor-pointer mx-auto lg:mb-5">

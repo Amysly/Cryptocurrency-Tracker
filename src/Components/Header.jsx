@@ -77,7 +77,7 @@ const Header = () => {
             to="/trendingcoins"
             className={({ isActive }) => `${LinkClass({ isActive })} hover:text-green-400`}
           >
-            TrendingCoins
+            Trending Coins
           </NavLink>
         </div>
       </div>

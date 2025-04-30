@@ -35,7 +35,7 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-green-400 font-serif sm:text-2xl lg:text-3xl">
+        <div className="text-green-400 font-serif text-lg sm:text-2xl lg:text-3xl">
         <NavLink to ="/">Cryptotracker</NavLink>
         </div>
 

@@ -18,7 +18,7 @@ const HeroSection = () => {
   return (
     <>
 <div className="relative">
-  <video autoPlay muted loop className="w-full h-[500px] object-cover">
+  <video autoPlay muted loop playsInline preload="auto" className="w-full h-[500px] object-cover">
   <source src="/video/coins.mp4" type="video/mp4" />
     </video>
   <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white text-center px-4">

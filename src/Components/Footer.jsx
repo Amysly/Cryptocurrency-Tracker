@@ -24,7 +24,7 @@ const Footer = () => {
         <div className="cursor-pointer">
           <h3 className="font-bold text-green-400 mt-3 mb-3 lg:text-xl sm:text-xs">Products</h3>
           <p className="text-gray-500 font-bold mb-2">
-            <a href='https://amyslyportfolio.netlify.app/' target="_blank" rel="noopener noreferrer">Portfolio</a>
+            <a href='https://amysly-portfolio.netlify.app/' target="_blank" rel="noopener noreferrer">Portfolio</a>
           </p>
           <p className="text-gray-500 font-bold mb-2">Academy</p>
           <p className="text-gray-500 font-bold mb-2">

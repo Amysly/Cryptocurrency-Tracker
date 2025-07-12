@@ -18,9 +18,10 @@ const HeroSection = () => {
   return (
     <>
 <div className="relative">
-  <video autoPlay muted loop playsInline preload="auto" className="w-full h-[500px] object-cover">
-  <source src="/video/coins.mp4" type="video/mp4" />
-    </video>
+ <video autoPlay muted loop playsInline preload="auto" className="w-full h-[500px] object-cover">
+    <source src="/video/coins.webm" type="video/webm" /> {/* Add WebM format */}
+    <source src="/video/coins.mp4" type="video/mp4" /> {/* Fallback */}
+</video>
   <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white text-center px-4">
     <h1 className="lg:text-4xl font-bold">Welcome to the Future of Finance </h1>
     <p className="lg:text-xl mt-4">Empower yourself with knowledge...</p>

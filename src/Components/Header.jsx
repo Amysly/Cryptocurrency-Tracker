@@ -66,7 +66,7 @@ const Header = () => {
           </NavLink>
 
           <NavLink
-            to="/gainers"
+            to="/market-trends"
             className={({ isActive }) => `${getLinkClass({ isActive })} hover:text-green-400 w-full text-center pb-2 border-b border-white border-opacity-20 lg:border-b-0 lg:w-auto`}
             onClick={() => setIsOpen(false)}
           >
